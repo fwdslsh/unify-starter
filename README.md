@@ -42,3 +42,6 @@ my-site/
 ```
 
 Happy hacking with ✨ **Unify** ✨
+<a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">
+<img decoding="async" src="https://mirrors.creativecommons.org/presskit/buttons/88x31/png/by.png" width="118" height="41" align="right">
+</a>

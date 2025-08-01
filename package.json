@@ -1,6 +1,6 @@
 {
-  "name": "unify-starter",
-  "type": "module",
+  "name": "your-site-name",
+  "homepage": "https://your.site/here",
   "scripts": {
     "build": "npx @fwdslsh/unify build",
     "dev": "npx @fwdslsh/unify serve"
