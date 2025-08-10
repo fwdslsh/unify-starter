@@ -1,0 +1,69 @@
+name: Test Build
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+        cache: 'npm'
+        
+    - name: Install dependencies
+      run: npm install
+      
+    - name: Build site
+      run: npm run build
+      
+    - name: Verify build output
+      run: |
+        # Check that essential files were generated
+        if [ ! -f "dist/index.html" ]; then
+          echo "❌ dist/index.html was not generated"
+          exit 1
+        fi
+        echo "✅ dist/index.html exists"
+        
+        if [ ! -f "dist/sitemap.xml" ]; then
+          echo "❌ dist/sitemap.xml was not generated"
+          exit 1
+        fi
+        echo "✅ dist/sitemap.xml exists"
+        
+        # Check that includes were processed correctly
+        if ! grep -q "Unify Starter" dist/index.html; then
+          echo "❌ Header include was not processed correctly"
+          exit 1
+        fi
+        echo "✅ Header include processed correctly"
+        
+        if ! grep -q "Built with.*Unify" dist/index.html; then
+          echo "❌ Footer include was not processed correctly"
+          exit 1
+        fi
+        echo "✅ Footer include processed correctly"
+        
+        if ! grep -q "Fast & Lightweight" dist/index.html; then
+          echo "❌ Card component was not processed correctly"
+          exit 1
+        fi
+        echo "✅ Card component processed correctly"
+        
+        if ! grep -q "Hello from Unify" dist/index.html; then
+          echo "❌ Main content was not processed correctly"
+          exit 1
+        fi
+        echo "✅ Main content processed correctly"
+        
+        echo "🎉 All build output verification checks passed!"
