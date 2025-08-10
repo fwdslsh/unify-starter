@@ -1,28 +1,261 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<!--#include virtual="/_includes/head.html" -->
-  <title>Welcome to Unify</title>
-</head>
-<body>
-<!--#include virtual="/_includes/header.html" -->
+<template target="title">Welcome to Unify - Complete Demo</template>
 
-  <main>
-    <h1>Hello from Unify</h1>
-    <p>This is a zero-boilerplate static site built with <a href="https://github.com/fwdslsh/unify">Unify</a>.</p>
+<template target="head">
+  <meta name="description" content="Complete demonstration of Unify static site generator features">
+  <meta name="keywords" content="unify, static site generator, demo, templating">
+  <meta property="og:title" content="Unify Complete Demo">
+  <meta property="og:description" content="Showcase of all Unify features in action">
+</template>
+
+<!-- Hero Section with DOM Templating -->
+<include src="/_includes/components/_hero.html">
+  <template target="title">🚀 Unify Complete Demo</template>
+  <template target="subtitle">Experience all features of the modern static site generator</template>
+  <template target="action">
+    <a href="#features" class="btn">Explore Features</a>
+    <a href="/blog/" class="btn" style="background: transparent; color: white; border: 2px solid white; margin-left: 1rem;">Read Blog</a>
+  </template>
+</include>
+
+<!-- Features Section -->
+<section id="features" class="features-section">
+  <h2 class="text-center">✨ All Features Demonstrated</h2>
+  
+  <div class="feature-grid">
+    <div class="feature">
+      <span class="feature-icon">🧩</span>
+      <h3>DOM Templating</h3>
+      <p>Modern <code>&lt;include&gt;</code>, <code>&lt;template&gt;</code>, and <code>&lt;slot&gt;</code> elements for component-based architecture.</p>
+    </div>
     
-    <p>Unify brings the power of server-side includes to static site generation. Build maintainable sites with component-based architecture—no more copying and pasting headers, footers, and navigation across multiple pages!</p>
+    <div class="feature">
+      <span class="feature-icon">📝</span>
+      <h3>Markdown + Frontmatter</h3>
+      <p>YAML frontmatter support with automatic layout discovery and override capabilities.</p>
+    </div>
     
-    <!--#include virtual="/_includes/card.html" -->
+    <div class="feature">
+      <span class="feature-icon">🎨</span>
+      <h3>Layout System</h3>
+      <p>Nested layouts, fallback layouts, and automatic layout discovery based on directory structure.</p>
+    </div>
     
-    <h2>Getting Started</h2>
-    <pre><code># Build your site
+    <div class="feature">
+      <span class="feature-icon">⚡</span>
+      <h3>Live Reload</h3>
+      <p>Development server with incremental builds and automatic browser refresh on file changes.</p>
+    </div>
+    
+    <div class="feature">
+      <span class="feature-icon">📁</span>
+      <h3>Asset Management</h3>
+      <p>Automatic asset discovery, copying, and optimization with smart dependency tracking.</p>
+    </div>
+    
+    <div class="feature">
+      <span class="feature-icon">🔧</span>
+      <h3>Build Options</h3>
+      <p>Pretty URLs, minification, custom asset copying, and sitemap generation.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Demo Sections -->
+<section class="demo-sections">
+  <h2>🎯 Feature Demonstrations</h2>
+  
+  <div class="grid grid-2">
+    <div class="card">
+      <h3>📋 Layout Discovery</h3>
+      <p>This page uses the global fallback layout from <code>_includes/_layout.html</code> with slot templating.</p>
+      <p><strong>Layout chain:</strong></p>
+      <ol>
+        <li>Check for page-specific layout override</li>
+        <li>Look for folder-specific <code>_layout.html</code></li>
+        <li>Use fallback <code>_includes/_layout.html</code> ✅</li>
+      </ol>
+    </div>
+    
+    <div class="card">
+      <h3>🔄 Incremental Builds</h3>
+      <p>Try editing any file and watch the development server rebuild only the necessary files:</p>
+      <ul>
+        <li>Edit <code>_includes/header.html</code> → Rebuilds all pages</li>
+        <li>Edit <code>blog/_layout.html</code> → Rebuilds blog pages only</li>
+        <li>Edit this page → Rebuilds only this page</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- Apache SSI Demonstration -->
+<section class="ssi-demo">
+  <h2>🔗 Apache SSI Includes</h2>
+  <p>This section demonstrates traditional Apache SSI syntax alongside modern DOM templating:</p>
+  
+  <!--#include virtual="/_includes/card.html" -->
+  
+  <div style="margin: 2rem 0; padding: 1.5rem; background: #f8f9fa; border-radius: 8px;">
+    <h4>Code Example:</h4>
+    <pre><code>&lt;!--#include virtual="/_includes/card.html" --&gt;</code></pre>
+    <p>The card above was included using Apache SSI syntax, while the hero section uses modern DOM templating with slots.</p>
+  </div>
+</section>
+
+<!-- Component Showcase -->
+<section class="component-showcase">
+  <h2>📦 Reusable Components</h2>
+  
+  <div class="grid grid-3">
+    <include src="/products/_product-card.html">
+      <template target="title">Sample Product</template>
+      <template target="description">Demonstrating component reusability with slot templating.</template>
+      <template target="price">$19.99</template>
+      <template target="actions">
+        <button class="btn" onclick="alert('Component interaction demo!')">Demo Action</button>
+      </template>
+    </include>
+    
+    <include src="/products/_product-card.html">
+      <template target="title">Another Product</template>
+      <template target="description">Same component, different content. Components have isolated styles and scripts.</template>
+      <template target="price">$29.99</template>
+    </include>
+    
+    <include src="/products/_product-card.html">
+      <template target="title">Third Product</template>
+      <template target="description">Notice how each component maintains its own styling and behavior.</template>
+      <template target="price">$39.99</template>
+    </include>
+  </div>
+</section>
+
+<!-- Navigation Component -->
+<section class="nav-demo">
+  <h2>🧭 Navigation Component</h2>
+  <p>Reusable navigation component with active state detection:</p>
+  
+  <!--#include virtual="/_includes/components/_navigation.html" -->
+</section>
+
+<!-- Build Commands -->
+<section class="build-commands">
+  <h2>🚀 CLI Commands Demonstration</h2>
+  
+  <div class="grid grid-2">
+    <div class="card">
+      <h3>Development</h3>
+      <pre><code># Start development server
+npm run dev
+
+# With custom port
+npx @fwdslsh/unify serve --port 8080
+
+# Watch for changes without serving
+npx @fwdslsh/unify watch</code></pre>
+    </div>
+    
+    <div class="card">
+      <h3>Production Build</h3>
+      <pre><code># Basic build
 npm run build
 
-# Start development server
-npm run dev</code></pre>
-  </main>
+# With pretty URLs
+npx @fwdslsh/unify build --pretty-urls
 
-<!--#include virtual="/_includes/footer.html" -->
-</body>
-</html>
+# With minification
+npx @fwdslsh/unify build --minify
+
+# With custom assets
+npx @fwdslsh/unify build --assets "./static/**/*"</code></pre>
+    </div>
+  </div>
+</section>
+
+<!-- Feature Links -->
+<section class="feature-links">
+  <h2>🔍 Explore More Features</h2>
+  
+  <div class="grid grid-2">
+    <div class="card">
+      <h3>📝 Blog Section</h3>
+      <p>Markdown files with YAML frontmatter and custom blog layout.</p>
+      <a href="/blog/" class="btn">Visit Blog</a>
+    </div>
+    
+    <div class="card">
+      <h3>🛍️ Products Section</h3>
+      <p>Product pages with layout overrides and component templating.</p>
+      <a href="/products/" class="btn">View Products</a>
+    </div>
+    
+    <div class="card">
+      <h3>👥 About Section</h3>
+      <p>Mixed HTML and Markdown content with automatic layout discovery.</p>
+      <a href="/about/" class="btn">Learn More</a>
+    </div>
+    
+    <div class="card">
+      <h3>📞 Contact Form</h3>
+      <p>Advanced DOM templating with form handling and JavaScript integration.</p>
+      <a href="/contact.html" class="btn">Get in Touch</a>
+    </div>
+  </div>
+</section>
+
+<template target="scripts">
+  <script>
+    // Homepage specific JavaScript
+    document.addEventListener('DOMContentLoaded', () => {
+      // Smooth scrolling for feature navigation
+      const featureBtn = document.querySelector('a[href="#features"]');
+      if (featureBtn) {
+        featureBtn.addEventListener('click', (e) => {
+          e.preventDefault();
+          document.getElementById('features').scrollIntoView({
+            behavior: 'smooth'
+          });
+        });
+      }
+      
+      // Feature card animations
+      const features = document.querySelectorAll('.feature');
+      features.forEach((feature, index) => {
+        feature.style.animationDelay = `${index * 0.1}s`;
+        feature.style.animation = 'fadeInUp 0.6s ease forwards';
+      });
+      
+      console.log('🏠 Homepage features loaded!');
+    });
+  </script>
+  
+  <style>
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .features-section {
+      margin: 4rem 0;
+    }
+    
+    .demo-sections,
+    .ssi-demo,
+    .component-showcase,
+    .nav-demo,
+    .build-commands,
+    .feature-links {
+      margin: 4rem 0;
+    }
+    
+    .feature {
+      opacity: 0;
+    }
+  </style>
+</template>

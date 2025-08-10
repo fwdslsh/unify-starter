@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--#include virtual="/_includes/head.html" -->
+  <slot name="head"></slot>
+  <title><slot name="title">Products</slot> - Unify Demo</title>
+</head>
+<body>
+  <!--#include virtual="/_includes/header.html" -->
+  
+  <main>
+    <div class="products-layout">
+      <div class="products-header">
+        <h1>🛍️ Products</h1>
+        <p>Showcase of product pages built with Unify</p>
+      </div>
+      
+      <slot></slot>
+    </div>
+  </main>
+  
+  <!--#include virtual="/_includes/footer.html" -->
+  <slot name="scripts"></slot>
+  <script src="/assets/js/components.js"></script>
+</body>
+</html>

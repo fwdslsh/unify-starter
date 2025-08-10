@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--#include virtual="/_includes/head.html" -->
+  <slot name="head"></slot>
+  <title><slot name="title">Blog</slot> - Unify Demo</title>
+</head>
+<body>
+  <!--#include virtual="/_includes/header.html" -->
+  
+  <main>
+    <div class="blog-layout">
+      <div class="blog-header">
+        <h1>📝 Blog</h1>
+        <p>Insights about static site generation and web development</p>
+      </div>
+      
+      <slot></slot>
+    </div>
+  </main>
+  
+  <!--#include virtual="/_includes/footer.html" -->
+  <slot name="scripts"></slot>
+  <script src="/assets/js/components.js"></script>
+</body>
+</html>

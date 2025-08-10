@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--#include virtual="/_includes/head.html" -->
+  <slot name="head"></slot>
+  <title><slot name="title">Unify Demo Site</slot></title>
+</head>
+<body>
+  <!--#include virtual="/_includes/header.html" -->
+  
+  <main>
+    <slot></slot>
+  </main>
+  
+  <!--#include virtual="/_includes/footer.html" -->
+  <slot name="scripts"></slot>
+</body>
+</html>

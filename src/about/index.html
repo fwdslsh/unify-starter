@@ -1,0 +1,85 @@
+<h1>About Unify Demo</h1>
+
+<p>Welcome to the comprehensive demonstration of <strong>Unify</strong>, the modern static site generator that combines simplicity with powerful features.</p>
+
+<div class="grid grid-2" style="margin: 2rem 0;">
+  <div class="card">
+    <h3>🎯 Our Mission</h3>
+    <p>To provide developers with a zero-configuration static site generator that doesn't sacrifice functionality for simplicity.</p>
+  </div>
+  
+  <div class="card">
+    <h3>⚡ Performance First</h3>
+    <p>Built with Bun-native APIs for lightning-fast builds and development experience.</p>
+  </div>
+  
+  <div class="card">
+    <h3>🧩 Component-Based</h3>
+    <p>Create reusable components with slots, templates, and scoped styles/scripts.</p>
+  </div>
+  
+  <div class="card">
+    <h3>📝 Content-Focused</h3>
+    <p>Support for Markdown with frontmatter, automatic layout discovery, and pretty URLs.</p>
+  </div>
+</div>
+
+<h2>What This Demo Showcases</h2>
+
+<p>This starter project demonstrates every feature of Unify according to the latest specification:</p>
+
+<ul>
+  <li><strong>Layout System:</strong> Nested layouts, fallback layouts, and layout discovery</li>
+  <li><strong>DOM Templating:</strong> Modern <code>&lt;include&gt;</code>, <code>&lt;template&gt;</code>, and <code>&lt;slot&gt;</code> elements</li>
+  <li><strong>Markdown Processing:</strong> YAML frontmatter with layout overrides</li>
+  <li><strong>Component Architecture:</strong> Reusable components with isolated styles and scripts</li>
+  <li><strong>Asset Management:</strong> Automatic asset discovery and copying</li>
+  <li><strong>Development Tools:</strong> Live reload server with incremental builds</li>
+  <li><strong>Build Options:</strong> Pretty URLs, minification, and custom asset copying</li>
+</ul>
+
+<h2>Directory Structure</h2>
+
+<pre><code>src/
+├── _includes/              # Shared layouts and components
+│   ├── _layout.html       # Fallback layout
+│   ├── head.html          # HTML head partial
+│   ├── header.html        # Site header
+│   ├── footer.html        # Site footer
+│   └── components/        # Reusable components
+│       ├── _hero.html     # Hero component with slots
+│       └── _navigation.html # Navigation component
+├── assets/                 # Static assets
+│   ├── css/              # Stylesheets
+│   ├── js/               # JavaScript files
+│   └── images/           # Images and icons
+├── blog/                  # Blog section
+│   ├── _layout.html      # Blog-specific layout
+│   ├── index.html        # Blog index page
+│   ├── first-post.md     # Markdown with frontmatter
+│   └── second-post.md    # Another blog post
+├── products/              # Products section
+│   ├── _layout.html      # Products layout
+│   ├── _product-card.html # Product component
+│   ├── index.html        # Products grid
+│   └── smartphone.html   # Product detail (layout override)
+├── about/                 # About section
+│   ├── index.html        # About page
+│   └── team.md          # Team page in Markdown
+├── contact.html           # Contact form with DOM templating
+└── index.html            # Homepage
+</code></pre>
+
+<div style="margin: 3rem 0; padding: 2rem; background: #f8f9fa; border-radius: 8px;">
+  <h3>🚀 Getting Started</h3>
+  <p>To start building with this demo:</p>
+  <ol>
+    <li>Clone this repository</li>
+    <li>Run <code>npm install</code> to install dependencies</li>
+    <li>Run <code>npm run dev</code> to start the development server</li>
+    <li>Edit files in <code>src/</code> and see changes instantly</li>
+    <li>Run <code>npm run build</code> to build for production</li>
+  </ol>
+</div>
+
+<p><a href="/about/team.html" class="btn">Meet the Team →</a></p>
