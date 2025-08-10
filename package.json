@@ -8,7 +8,7 @@
     "dev": "npx @fwdslsh/unify serve"
   },
   "devDependencies": {
-    "@fwdslsh/unify": "^0.4.3"
+    "@fwdslsh/unify": "^0.4.2"
   },
   "keywords": ["unify", "static-site-generator", "starter-kit"]
 }
