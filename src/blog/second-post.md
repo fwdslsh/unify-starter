@@ -4,9 +4,17 @@ date: "2025-01-10"
 author: "Unify Team"
 tags: ["advanced", "features", "templating"]
 description: "Explore advanced Unify features including nested layouts, slot templating, and component architecture."
+layout: "blog"
 ---
 
-<template target="title">Advanced Features Deep Dive</template>
+---
+title: "Advanced Features Deep Dive"
+date: "2025-01-10"
+author: "Unify Team"
+tags: ["advanced", "features", "templating"]
+description: "Explore advanced Unify features including layouts, includes, and component architecture."
+layout: "blog"
+---
 
 <article class="blog-post">
   <header class="blog-meta">
@@ -21,81 +29,56 @@ description: "Explore advanced Unify features including nested layouts, slot tem
   <div class="blog-content">
     ## Advanced Templating Patterns
 
-    Unify provides powerful templating capabilities that go beyond simple includes. Let's explore the advanced features that make Unify a robust static site generator.
+    Unify provides powerful templating capabilities built around Apache SSI includes and layout systems. Let's explore the advanced features that make Unify a robust static site generator.
 
-    ### Slot-Based Templating
+    ### Layout System Deep Dive
 
-    Use slots to create flexible, reusable layouts:
-
-    ```html
-    <!-- Layout file -->
-    <div class="layout">
-      <header>
-        <slot name="header">Default header</slot>
-      </header>
-      <main>
-        <slot></slot> <!-- Default slot -->
-      </main>
-      <aside>
-        <slot name="sidebar"></slot>
-      </aside>
-    </div>
-    ```
+    Unify uses a convention-based layout system with `.layouts/` directory:
 
     ```html
-    <!-- Page using the layout -->
-    <template target="header">
-      <h1>Custom Page Header</h1>
-    </template>
-    <template target="sidebar">
-      <nav>Custom navigation</nav>
-    </template>
-    
-    <p>This goes in the default slot</p>
+    <!-- .layouts/default.html -->
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <title>{{ title | default: "My Site" }}</title>
+    </head>
+    <body>
+      <!--#include virtual="/_includes/header.html" -->
+      <main>{{ content }}</main>
+      <!--#include virtual="/_includes/footer.html" -->
+    </body>
+    </html>
     ```
 
-    ### Layout Override Strategies
+    ### Layout Assignment Strategies
 
-    #### 1. Frontmatter Override (Markdown)
+    #### 1. Frontmatter Assignment (Markdown & HTML)
     ```markdown
     ---
-    layout: "custom-layout.html"
+    layout: "blog"
+    title: "My Blog Post"
     ---
     Content here...
     ```
 
-    #### 2. Data Attribute Override (HTML)
-    ```html
-    <div data-layout="/_includes/special-layout.html">
-      Content here...
-    </div>
-    ```
+    #### 2. Default Layout Fallback
+    If no layout is specified, Unify uses `default.html` from `.layouts/`
 
     ### Component Architecture
 
-    Build complex components with isolated styles and scripts:
+    Build reusable components with Apache SSI includes:
 
     ```html
-    <!-- _includes/components/_product-card.html -->
-    <div class="product-card" data-product-id="{{ id }}">
-      <img src="{{ image }}" alt="{{ title }}">
-      <h3>{{ title }}</h3>
-      <p class="price">{{ price }}</p>
-      <slot name="actions">
-        <button class="btn">Add to Cart</button>
-      </slot>
+    <!-- _includes/components/_card.html -->
+    <div class="card">
+      <h3>Card Title</h3>
+      <p>Card content goes here.</p>
     </div>
+    ```
 
-    <style scoped>
-    .product-card { /* component styles */ }
-    </style>
-
-    <script>
-    // Component-specific JavaScript
-    document.querySelectorAll('.product-card').forEach(card => {
-      // Add interaction logic
-    });
-    </script>
+    Use components in your pages:
+    ```html
+    <!--#include virtual="/_includes/components/_card.html" -->
     ```
 
     ### Asset Management
@@ -165,9 +148,34 @@ description: "Explore advanced Unify features including nested layouts, slot tem
     #### Incremental Builds
     Unify tracks dependencies and rebuilds only what's necessary:
 
-    - Change `_layout.html` → Rebuilds all pages using it
     - Change `_includes/header.html` → Rebuilds all pages including it
+    - Change `.layouts/blog.html` → Rebuilds all pages using blog layout
     - Change single page → Rebuilds only that page
+
+    ### Directory Structure Best Practices
+
+    ```
+    src/
+    ├── .layouts/              # Layout templates
+    │   ├── default.html      # Default layout
+    │   ├── blog.html         # Blog layout
+    │   └── product.html      # Product layout
+    ├── _includes/            # Reusable partials
+    │   ├── head.html        # HTML head
+    │   ├── header.html      # Site header
+    │   ├── footer.html      # Site footer
+    │   └── components/      # Custom components
+    │       ├── _card.html   # Card component
+    │       └── _hero.html   # Hero component
+    ├── assets/              # Static assets
+    │   ├── css/            # Stylesheets
+    │   ├── js/             # JavaScript
+    │   └── images/         # Images
+    ├── blog/               # Blog section
+    │   ├── index.html     # Blog index
+    │   └── *.md           # Blog posts
+    └── index.html         # Homepage
+    ```
 
     ## Performance Best Practices
 
@@ -175,6 +183,7 @@ description: "Explore advanced Unify features including nested layouts, slot tem
     2. **Optimize images** before adding to assets
     3. **Minimize CSS/JS** for production builds
     4. **Leverage browser caching** with proper asset naming
+    5. **Use Apache SSI includes** for better code organization
 
     ## Security Considerations
 

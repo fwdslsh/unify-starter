@@ -4,10 +4,17 @@ date: "2025-01-15"
 author: "Unify Team"
 tags: ["tutorial", "getting-started"]
 description: "Learn how to build your first static site with Unify's powerful templating system."
-layout: "_layout.html"
+layout: "blog"
 ---
 
-<template target="title">Getting Started with Unify</template>
+---
+title: "Getting Started with Unify"
+date: "2025-01-15"
+author: "Unify Team"
+tags: ["tutorial", "getting-started"]
+description: "Learn how to build your first static site with Unify's powerful templating system."
+layout: "blog"
+---
 
 <article class="blog-post">
   <header class="blog-meta">
@@ -22,18 +29,16 @@ layout: "_layout.html"
   <div class="blog-content">
     ## What is Unify?
 
-    Unify is a modern, lightweight static site generator designed for frontend developers who want to build maintainable static sites with component-based architecture. It uses familiar Apache SSI syntax and modern HTML templating.
+    Unify is a modern, lightweight static site generator designed for frontend developers who want to build maintainable static sites with component-based architecture. It uses familiar Apache SSI syntax for includes and processing.
 
     ## Key Features
 
-    ### 1. Component-Based Architecture
-    Build reusable components with `<include>`, `<template>`, and `<slot>` elements:
+    ### 1. Apache SSI Includes
+    Build reusable components with familiar `<!--#include-->` syntax:
 
     ```html
-    <include src="/_includes/components/_hero.html">
-      <template target="title">Welcome to My Site</template>
-      <template target="subtitle">Built with Unify</template>
-    </include>
+    <!--#include virtual="/_includes/header.html" -->
+    <!--#include file="relative-component.html" -->
     ```
 
     ### 2. Markdown Support
@@ -43,18 +48,19 @@ layout: "_layout.html"
     ---
     title: "My Post"
     date: "2025-01-15"
-    layout: "_layout.html"
+    layout: "blog"
     ---
 
     # Your content here
     ```
 
     ### 3. Layout System
-    Organize your site with automatic layout discovery and nested layouts:
+    Organize your site with automatic layout discovery:
 
-    - `src/_includes/_layout.html` - Global fallback layout
-    - `src/blog/_layout.html` - Blog section layout  
-    - `src/products/_layout.html` - Products section layout
+    - Create layouts in `src/.layouts/` directory
+    - Specify layout in frontmatter: `layout: "blog"`
+    - Use `{{ content }}` to insert page content
+    - Use `{{ title }}` for dynamic titles
 
     ### 4. Live Development Server
     Start developing with hot reload:
@@ -88,12 +94,34 @@ layout: "_layout.html"
        npm run build
        ```
 
+    ## Project Structure
+
+    ```
+    src/
+    ├── .layouts/           # Layout templates
+    │   ├── default.html   # Default layout
+    │   └── blog.html      # Blog layout
+    ├── _includes/         # Reusable components
+    │   ├── header.html    # Site header
+    │   ├── footer.html    # Site footer
+    │   └── components/    # Custom components
+    ├── assets/            # Static assets
+    │   ├── css/          # Stylesheets
+    │   ├── js/           # JavaScript files
+    │   └── images/       # Images
+    ├── blog/             # Blog section
+    │   ├── index.html    # Blog index
+    │   └── *.md          # Blog posts
+    └── index.html        # Homepage
+    ```
+
     ## Next Steps
 
-    - Explore the `/src` directory structure
-    - Try creating your own components in `/_includes/components/`
+    - Explore the project structure
+    - Try creating your own components in `/_includes/`
     - Add Markdown content with frontmatter
-    - Experiment with slot templating
+    - Experiment with different layouts
+    - Test the CLI build options
 
     Happy building with Unify! 🚀
   </div>

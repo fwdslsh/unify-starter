@@ -2,6 +2,7 @@
 title: "Meet the Team"
 description: "The talented people behind Unify static site generator"
 date: "2025-01-15"
+layout: "default"
 ---
 
 # Meet the Team

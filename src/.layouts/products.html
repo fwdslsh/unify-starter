@@ -2,8 +2,7 @@
 <html lang="en">
 <head>
   <!--#include virtual="/_includes/head.html" -->
-  <slot name="head"></slot>
-  <title><slot name="title">Products</slot> - Unify Demo</title>
+  <title>{{ title | default: "Products" }} - Unify Demo</title>
 </head>
 <body>
   <!--#include virtual="/_includes/header.html" -->
@@ -15,12 +14,10 @@
         <p>Showcase of product pages built with Unify</p>
       </div>
       
-      <slot></slot>
+      {{ content }}
     </div>
   </main>
   
   <!--#include virtual="/_includes/footer.html" -->
-  <slot name="scripts"></slot>
-  <script src="/assets/js/components.js"></script>
 </body>
 </html>

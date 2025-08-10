@@ -1,31 +1,12 @@
 <div class="product-card">
   <img src="/assets/images/placeholder-product.jpg" alt="Product Image" loading="lazy">
   <div class="product-card-content">
-    <h3><slot name="title">Product Name</slot></h3>
-    <p><slot name="description">Product description goes here</slot></p>
-    <div class="price"><slot name="price">$99.99</slot></div>
-    <slot name="actions">
-      <button class="btn">Add to Cart</button>
-    </slot>
+    <h3>Sample Product</h3>
+    <p>High-quality product with advanced features and modern design.</p>
+    <div class="price">$99.99</div>
+    <button class="btn">Add to Cart</button>
   </div>
 </div>
-
-<style scoped>
-/* Product card specific styles */
-.product-card {
-  max-width: 350px;
-  margin: 1rem auto;
-}
-
-.product-card img {
-  border-radius: 12px 12px 0 0;
-}
-
-.product-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.2);
-}
-</style>
 
 <script>
 // Product card interactions

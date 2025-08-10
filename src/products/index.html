@@ -1,39 +1,36 @@
-<template target="title">Product Catalog</template>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!--#include virtual="/_includes/head.html" -->
+  <title>Products - Unify Demo</title>
+</head>
+<body>
+<!--#include virtual="/_includes/header.html" -->
 
-<div class="grid grid-3">
-  <!--#include virtual="/products/_product-card.html" -->
-  <template target="title">Laptop Pro</template>
-  <template target="description">High-performance laptop with cutting-edge features for professionals.</template>
-  <template target="price">$1,299.99</template>
+<main>
+  <div class="products-layout">
+    <div class="products-header">
+      <h1>🛍️ Products</h1>
+      <p>Showcase of product pages built with Unify</p>
+    </div>
+    
+    <div class="grid grid-3">
+      <!--#include virtual="/products/_product-card.html" -->
+      <!--#include virtual="/products/_product-card.html" -->
+      <!--#include virtual="/products/_product-card.html" -->
+      <!--#include virtual="/products/_product-card.html" -->
+      <!--#include virtual="/products/_product-card.html" -->
+      <!--#include virtual="/products/_product-card.html" -->
+    </div>
 
-  <!--#include virtual="/products/_product-card.html" -->
-  <template target="title">Smartphone X</template>
-  <template target="description">Latest smartphone with advanced camera and all-day battery life.</template>
-  <template target="price">$899.99</template>
+    <div style="margin: 3rem 0; text-align: center;">
+      <h2>Featured Product</h2>
+      <p>Check out our latest flagship product with detailed specifications:</p>
+      <a href="/products/smartphone.html" class="btn">View Smartphone X Details</a>
+    </div>
+  </div>
+</main>
 
-  <!--#include virtual="/products/_product-card.html" -->
-  <template target="title">Wireless Headphones</template>
-  <template target="description">Premium noise-cancelling headphones with studio-quality sound.</template>
-  <template target="price">$299.99</template>
-
-  <!--#include virtual="/products/_product-card.html" -->
-  <template target="title">Smart Watch</template>
-  <template target="description">Fitness tracker and smartwatch with health monitoring features.</template>
-  <template target="price">$399.99</template>
-
-  <!--#include virtual="/products/_product-card.html" -->
-  <template target="title">Tablet Mini</template>
-  <template target="description">Compact tablet perfect for reading, browsing, and light productivity.</template>
-  <template target="price">$449.99</template>
-
-  <!--#include virtual="/products/_product-card.html" -->
-  <template target="title">Gaming Mouse</template>
-  <template target="description">High-precision gaming mouse with customizable RGB lighting.</template>
-  <template target="price">$79.99</template>
-</div>
-
-<div style="margin: 3rem 0; text-align: center;">
-  <h2>Featured Product</h2>
-  <p>Check out our latest flagship product with a custom layout override:</p>
-  <a href="/products/smartphone.html" class="btn">View Smartphone X Details</a>
-</div>
+<!--#include virtual="/_includes/footer.html" -->
+</body>
+</html>
