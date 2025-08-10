@@ -1,10 +1,28 @@
-<template data-slot="title">Home</template>
-<div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!--#include virtual="/_includes/head.html" -->
+  <title>Welcome to Unify</title>
+</head>
+<body>
+<!--#include virtual="/_includes/header.html" -->
 
-  <h1>Hello from Unify</h1>
-  <p>This is a zero-boilerplate static site.</p>
+  <main>
+    <h1>Hello from Unify</h1>
+    <p>This is a zero-boilerplate static site built with <a href="https://github.com/fwdslsh/unify">Unify</a>.</p>
+    
+    <p>Unify brings the power of server-side includes to static site generation. Build maintainable sites with component-based architecture—no more copying and pasting headers, footers, and navigation across multiple pages!</p>
+    
+    <!--#include virtual="/_includes/card.html" -->
+    
+    <h2>Getting Started</h2>
+    <pre><code># Build your site
+npm run build
 
-  <include src="/.components/card.html" 
-           data-title="Fast" 
-           data-description="This card is a component." />
-</div>
+# Start development server
+npm run dev</code></pre>
+  </main>
+
+<!--#include virtual="/_includes/footer.html" -->
+</body>
+</html>

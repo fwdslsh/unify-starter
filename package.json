@@ -1,8 +1,14 @@
 {
   "name": "your-site-name",
+  "version": "1.0.0",
+  "description": "A starter kit for building static sites with Unify",
   "homepage": "https://your.site/here",
   "scripts": {
     "build": "npx @fwdslsh/unify build",
     "dev": "npx @fwdslsh/unify serve"
-  }
+  },
+  "devDependencies": {
+    "@fwdslsh/unify": "^0.4.3"
+  },
+  "keywords": ["unify", "static-site-generator", "starter-kit"]
 }
