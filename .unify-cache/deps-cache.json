@@ -1,1 +1,8 @@
-{}
+{
+  "/home/runner/work/unify-starter/unify-starter/src/index.html": [
+    "/home/runner/work/unify-starter/unify-starter/src/includes/head.html",
+    "/home/runner/work/unify-starter/unify-starter/src/includes/header.html",
+    "/home/runner/work/unify-starter/unify-starter/src/components/card.html",
+    "/home/runner/work/unify-starter/unify-starter/src/includes/footer.html"
+  ]
+}
