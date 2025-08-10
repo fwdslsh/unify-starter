@@ -15,159 +15,231 @@
   <!-- Hero Section -->
   <div class="hero">
     <div class="container">
-      <h1>🚀 Unify Complete Demo</h1>
-      <p>Experience all features of the modern static site generator</p>
-      <a href="#features" class="btn">Explore Features</a>
-      <a href="/blog/" class="btn" style="background: transparent; color: white; border: 2px solid white; margin-left: 1rem;">Read Blog</a>
+      <h1>🚀 Unify Complete Demo & Learning Kit</h1>
+      <p>Learn modern static site generation with this comprehensive demonstration of all Unify features, complete with guides and examples</p>
+      <a href="#learn" class="btn">Start Learning</a>
+      <a href="/next-steps.html" class="btn" style="background: transparent; color: white; border: 2px solid white; margin-left: 1rem;">Next Steps Guide</a>
     </div>
   </div>
 
   <!-- Features Section -->
-  <section id="features" class="features-section">
-    <h2 class="text-center">✨ All Features Demonstrated</h2>
+  <section id="learn" class="features-section">
+    <h2 class="text-center">✨ Learn Unify Through Examples</h2>
+    <p class="text-center" style="max-width: 60ch; margin: 0 auto var(--space-xl) auto; color: var(--on-surface-variant); font-size: 1.125rem;">
+      This starter kit demonstrates every Unify feature with working examples. Explore, learn, and build your own projects.
+    </p>
     
     <div class="feature-grid">
       <div class="feature">
         <span class="feature-icon">🧩</span>
-        <h3>Apache SSI Includes</h3>
-        <p>Familiar <code>&lt;!--#include--&gt;</code> syntax for component-based architecture and reusable partials.</p>
+        <h3>Component Architecture</h3>
+        <p>Master Apache SSI includes for reusable components and modular design patterns.</p>
       </div>
       
       <div class="feature">
         <span class="feature-icon">📝</span>
-        <h3>Markdown + Frontmatter</h3>
-        <p>YAML frontmatter support with automatic layout discovery and override capabilities.</p>
+        <h3>Content Management</h3>
+        <p>Learn YAML frontmatter, Markdown processing, and automatic layout discovery.</p>
       </div>
       
       <div class="feature">
         <span class="feature-icon">🎨</span>
-        <h3>Layout System</h3>
-        <p>Powerful layout system with layout discovery and custom layout assignment via frontmatter.</p>
+        <h3>Modern CSS</h3>
+        <p>Explore CSS custom properties, view transitions, container queries, and responsive design.</p>
       </div>
       
       <div class="feature">
         <span class="feature-icon">⚡</span>
-        <h3>Live Reload</h3>
-        <p>Development server with incremental builds and automatic browser refresh on file changes.</p>
+        <h3>Development Workflow</h3>
+        <p>Experience live reload, incremental builds, and modern development tools.</p>
       </div>
       
       <div class="feature">
         <span class="feature-icon">📁</span>
-        <h3>Asset Management</h3>
-        <p>Automatic asset discovery, copying, and optimization with smart dependency tracking.</p>
+        <h3>Asset Optimization</h3>
+        <p>Understand asset management, minification, and build optimization strategies.</p>
       </div>
       
       <div class="feature">
-        <span class="feature-icon">🔧</span>
-        <h3>Build Options</h3>
-        <p>Pretty URLs, minification, custom asset copying, and sitemap generation.</p>
+        <span class="feature-icon">🚀</span>
+        <h3>Deployment Ready</h3>
+        <p>Ready-to-deploy configurations for Netlify, Vercel, GitHub Pages, and more.</p>
       </div>
     </div>
   </section>
 
-  <!-- Demo Sections -->
-  <section class="demo-sections">
-    <h2>🎯 Feature Demonstrations</h2>
+  <!-- Learning Path Section -->
+  <section class="learning-path">
+    <h2>🎯 Your Learning Path</h2>
+    <p>Follow this guided path to master Unify and build your own projects:</p>
     
     <div class="grid grid-2">
       <div class="card">
-        <h3>📋 Layout System</h3>
-        <p>This page uses the default layout from <code>.layouts/default.html</code>.</p>
-        <p><strong>Layout hierarchy:</strong></p>
-        <ol>
-          <li>Check frontmatter for layout override</li>
-          <li>Use default layout ✅</li>
-          <li>Process includes and build page</li>
-        </ol>
+        <h3>1. 📖 Explore Examples</h3>
+        <p>Browse through the working examples to understand how each feature works in practice.</p>
+        <div class="card-footer">
+          <a href="/blog/" class="btn">View Blog Examples</a>
+          <a href="/products/" class="btn" style="background: transparent; color: var(--primary); border: 1px solid var(--primary);">See Product Pages</a>
+        </div>
       </div>
       
       <div class="card">
-        <h3>🔄 Incremental Builds</h3>
-        <p>Try editing any file and watch the development server rebuild only the necessary files:</p>
-        <ul>
-          <li>Edit <code>_includes/header.html</code> → Rebuilds all pages</li>
-          <li>Edit blog posts → Rebuilds blog pages only</li>
-          <li>Edit this page → Rebuilds only this page</li>
+        <h3>2. 🔧 Study Implementation</h3>
+        <p>Examine the source code to learn component structure, layout system, and build configuration.</p>
+        <div class="card-footer">
+          <code style="font-size: 0.875rem;">src/_includes/</code>
+          <code style="font-size: 0.875rem;">src/.layouts/</code>
+        </div>
+      </div>
+      
+      <div class="card">
+        <h3>3. 🎨 Customize Design</h3>
+        <p>Learn modern CSS features including custom properties, view transitions, and responsive design.</p>
+        <div class="card-footer">
+          <code style="font-size: 0.875rem;">src/assets/css/</code>
+        </div>
+      </div>
+      
+      <div class="card card-featured">
+        <h3>4. 🚀 Build Your Project</h3>
+        <p>Follow our comprehensive guide to transform this demo into your own unique website.</p>
+        <div class="card-footer">
+          <a href="/next-steps.html" class="btn" style="background: white; color: var(--primary);">Get Started →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Technical Implementation -->
+  <section class="technical-demo">
+    <h2>🔗 Technical Implementation Examples</h2>
+    <p>See how Unify features work under the hood:</p>
+    
+    <!--#include virtual="/_includes/card.html" -->
+    
+    <div class="implementation-grid">
+      <div class="implementation-card">
+        <h4>Apache SSI Includes</h4>
+        <p>The card above uses this include syntax:</p>
+        <pre><code>&lt;!--#include virtual="/_includes/card.html" --&gt;</code></pre>
+        <p>Processed at build time for component reusability.</p>
+      </div>
+      
+      <div class="implementation-card">
+        <h4>Modern CSS Features</h4>
+        <p>This site showcases cutting-edge CSS:</p>
+        <ul style="text-align: left; margin: 1rem 0;">
+          <li>CSS Custom Properties for theming</li>
+          <li>View Transitions API for smooth navigation</li>
+          <li>Container Queries for responsive components</li>
+          <li>CSS Grid and Flexbox for layouts</li>
+          <li>Modern color functions (oklch, color-mix)</li>
+        </ul>
+      </div>
+      
+      <div class="implementation-card">
+        <h4>Layout Discovery</h4>
+        <p>Pages automatically use appropriate layouts:</p>
+        <ul style="text-align: left; margin: 1rem 0;">
+          <li><code>.layouts/default.html</code> - Default layout</li>
+          <li><code>.layouts/blog.html</code> - Blog posts</li>
+          <li><code>.layouts/products.html</code> - Product pages</li>
+        </ul>
+      </div>
+      
+      <div class="implementation-card">
+        <h4>Performance Features</h4>
+        <p>Built for modern web standards:</p>
+        <ul style="text-align: left; margin: 1rem 0;">
+          <li>Incremental builds and dependency tracking</li>
+          <li>Asset optimization and minification</li>
+          <li>Modern viewport units (dvh, cqi)</li>
+          <li>Prefers-reduced-motion support</li>
         </ul>
       </div>
     </div>
   </section>
 
-  <!-- Apache SSI Demonstration -->
-  <section class="ssi-demo">
-    <h2>🔗 Apache SSI Includes</h2>
-    <p>This section demonstrates Apache SSI syntax for component inclusion:</p>
-    
-    <!--#include virtual="/_includes/card.html" -->
-    
-    <div style="margin: 2rem 0; padding: 1.5rem; background: #f8f9fa; border-radius: 8px;">
-      <h4>Code Example:</h4>
-      <pre><code>&lt;!--#include virtual="/_includes/card.html" --&gt;</code></pre>
-      <p>The card above was included using Apache SSI syntax, which Unify processes at build time.</p>
-    </div>
-  </section>
-
   <!-- Build Commands -->
   <section class="build-commands">
-    <h2>🚀 CLI Commands Demonstration</h2>
+    <h2>🚀 Try These Commands</h2>
+    <p class="text-center" style="max-width: 60ch; margin: 0 auto var(--space-xl) auto; color: var(--on-surface-variant); font-size: 1.125rem;">
+      Experience Unify's development workflow and build system:
+    </p>
     
     <div class="grid grid-2">
       <div class="card">
-        <h3>Development</h3>
+        <h3>🔧 Development Mode</h3>
+        <p>Start the development server with live reload and instant updates:</p>
         <pre><code># Start development server
 npm run dev
 
 # With custom port
 npx @fwdslsh/unify serve --port 8080
 
-# Watch for changes without serving
+# Watch for changes
 npx @fwdslsh/unify watch</code></pre>
+        <p><small>💡 Try editing any file and watch the browser auto-refresh!</small></p>
       </div>
       
       <div class="card">
-        <h3>Production Build</h3>
+        <h3>🚀 Production Build</h3>
+        <p>Build optimized static files ready for deployment:</p>
         <pre><code># Basic build
 npm run build
 
-# With pretty URLs
-npx @fwdslsh/unify build --pretty-urls
+# With pretty URLs (/about.html → /about/)
+npm run build:pretty
 
-# With minification
-npx @fwdslsh/unify build --minify
-
-# With custom assets
-npx @fwdslsh/unify build --assets "./assets/**/*"</code></pre>
+# Full production build
+npm run build:production</code></pre>
+        <p><small>📦 Output goes to <code>dist/</code> folder</small></p>
       </div>
     </div>
   </section>
 
-  <!-- Feature Links -->
+  <!-- Explore More -->
   <section class="feature-links">
-    <h2>🔍 Explore More Features</h2>
+    <h2>🔍 Continue Your Learning Journey</h2>
+    <p class="text-center" style="max-width: 60ch; margin: 0 auto var(--space-xl) auto; color: var(--on-surface-variant); font-size: 1.125rem;">
+      Dive deeper into specific features and examples:
+    </p>
     
     <div class="grid grid-2">
       <div class="card">
-        <h3>📝 Blog Section</h3>
-        <p>Markdown files with YAML frontmatter and custom blog layout.</p>
-        <a href="/blog/" class="btn">Visit Blog</a>
+        <h3>📝 Blog & Markdown</h3>
+        <p>Learn content management with Markdown files, YAML frontmatter, and automatic layout discovery.</p>
+        <div class="card-footer">
+          <a href="/blog/" class="btn">Explore Blog Examples</a>
+          <small>See how posts are structured and organized</small>
+        </div>
       </div>
       
       <div class="card">
-        <h3>🛍️ Products Section</h3>
-        <p>Product pages with layout overrides and component includes.</p>
-        <a href="/products/" class="btn">View Products</a>
+        <h3>🛍️ Product Pages</h3>
+        <p>Understand layout overrides, component includes, and structured content patterns.</p>
+        <div class="card-footer">
+          <a href="/products/" class="btn">View Product Examples</a>
+          <small>Learn component-based page construction</small>
+        </div>
       </div>
       
       <div class="card">
-        <h3>👥 About Section</h3>
-        <p>Mixed HTML and Markdown content with automatic layout discovery.</p>
-        <a href="/about/" class="btn">Learn More</a>
+        <h3>👥 About Pages</h3>
+        <p>Mixed HTML and Markdown content with team pages and automatic layout discovery.</p>
+        <div class="card-footer">
+          <a href="/about/" class="btn">See About Section</a>
+          <small>Example of content organization</small>
+        </div>
       </div>
       
-      <div class="card">
-        <h3>📞 Contact Form</h3>
-        <p>Contact form with JavaScript interaction and form handling demonstration.</p>
-        <a href="/contact.html" class="btn">Get in Touch</a>
+      <div class="card card-featured">
+        <h3>🎯 Ready to Build?</h3>
+        <p>Transform this demo into your own project with our comprehensive step-by-step guide.</p>
+        <div class="card-footer">
+          <a href="/next-steps.html" class="btn" style="background: white; color: var(--primary); font-weight: 700;">Start Building →</a>
+          <small style="color: rgba(255,255,255,0.9);">Complete customization guide</small>
+        </div>
       </div>
     </div>
   </section>
@@ -176,31 +248,143 @@ npx @fwdslsh/unify build --assets "./assets/**/*"</code></pre>
 <!--#include virtual="/_includes/footer.html" -->
 
 <script>
-// Homepage specific JavaScript
+// Homepage enhanced JavaScript with modern features
 document.addEventListener('DOMContentLoaded', () => {
-  // Smooth scrolling for feature navigation
-  const featureBtn = document.querySelector('a[href="#features"]');
-  if (featureBtn) {
-    featureBtn.addEventListener('click', (e) => {
+  console.log('🏠 Enhanced homepage features loading...');
+  
+  // Enhanced smooth scrolling for learn section
+  const learnBtn = document.querySelector('a[href="#learn"]');
+  if (learnBtn) {
+    learnBtn.addEventListener('click', (e) => {
       e.preventDefault();
-      document.getElementById('features').scrollIntoView({
-        behavior: 'smooth'
-      });
+      const target = document.getElementById('learn');
+      
+      // Use modern scroll API if available
+      if (target.scrollIntoView) {
+        target.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
     });
   }
   
-  // Feature card animations
+  // Enhanced feature card animations with Intersection Observer
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
+  
+  const featureObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry, index) => {
+      if (entry.isIntersecting) {
+        // Stagger the animation
+        setTimeout(() => {
+          entry.target.style.animation = `fadeInUp 0.6s ease forwards`;
+        }, index * 100);
+        
+        featureObserver.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+  
+  // Observe feature cards
   const features = document.querySelectorAll('.feature');
-  features.forEach((feature, index) => {
-    feature.style.animationDelay = `${index * 0.1}s`;
-    feature.style.animation = 'fadeInUp 0.6s ease forwards';
+  features.forEach(feature => {
+    featureObserver.observe(feature);
   });
   
-  console.log('🏠 Homepage features loaded!');
-});
-</script>
+  // Observe implementation cards
+  const implementationCards = document.querySelectorAll('.implementation-card');
+  implementationCards.forEach((card, index) => {
+    // Add hover effects with modern CSS
+    card.addEventListener('mouseenter', () => {
+      if (CSS.supports('transform', 'translateY(-4px)')) {
+        card.style.transform = 'translateY(-4px)';
+      }
+    });
+    
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = '';
+    });
+    
+    // Animate in with delay
+    const cardObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          setTimeout(() => {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+          }, index * 150);
+          cardObserver.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+    
+    card.style.opacity = '0';
+    card.style.transform = 'translateY(20px)';
+    card.style.transition = 'all 0.6s ease';
+    cardObserver.observe(card);
+  });
+  
+  // Progressive enhancement for view transitions
+  if ('startViewTransition' in document) {
+    console.log('✨ View Transitions API supported - enhanced navigation enabled');
+    
+    // Add special handling for CTA buttons
+    const ctaButtons = document.querySelectorAll('.card-featured .btn');
+    ctaButtons.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        if (btn.href) {
+          e.preventDefault();
+          
+          // Special transition for CTA
+          document.startViewTransition(() => {
+            window.location.href = btn.href;
+          });
+        }
+      });
+    });
+  } else {
+    console.log('📱 View Transitions not supported - using standard navigation');
+  }
+  
+  // Add dynamic theme detection
+  const prefersColorScheme = window.matchMedia('(prefers-color-scheme: dark)');
+  
+  function updateThemeClasses(e) {
+    if (e.matches) {
+      document.documentElement.classList.add('dark-mode');
+      console.log('🌙 Dark mode detected');
+    } else {
+      document.documentElement.classList.remove('dark-mode');
+      console.log('☀️ Light mode detected');
+    }
+  }
+  
+  // Listen for changes
+  prefersColorScheme.addEventListener('change', updateThemeClasses);
+  updateThemeClasses(prefersColorScheme);
+  
+  // Add performance monitoring
+  if ('performance' in window && 'observe' in PerformanceObserver.prototype) {
+    const perfObserver = new PerformanceObserver((entryList) => {
+      const entries = entryList.getEntries();
+      entries.forEach(entry => {
+        if (entry.entryType === 'paint' && entry.name === 'first-contentful-paint') {
+          console.log(`🎨 First Contentful Paint: ${entry.startTime.toFixed(2)}ms`);
+        }
+      });
+    });
+    
+    perfObserver.observe({ entryTypes: ['paint'] });
+  }
+  
+  console.log('🚀 Enhanced homepage features loaded successfully!');
+});</script>
 
 <style>
+/* Homepage specific styles */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -213,18 +397,110 @@ document.addEventListener('DOMContentLoaded', () => {
 }
 
 .features-section {
-  margin: 4rem 0;
+  margin: var(--space-3xl) 0;
 }
 
-.demo-sections,
-.ssi-demo,
+.features-section > p {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: var(--on-surface-variant);
+}
+
+.learning-path,
+.technical-demo,
 .build-commands,
 .feature-links {
-  margin: 4rem 0;
+  margin: var(--space-3xl) 0;
+}
+
+.learning-path h2,
+.technical-demo h2 {
+  text-align: center;
+  margin-bottom: var(--space-lg);
+}
+
+.learning-path > p,
+.technical-demo > p {
+  text-align: center;
+  font-size: 1.125rem;
+  color: var(--on-surface-variant);
+  max-width: 60ch;
+  margin: 0 auto var(--space-xl) auto;
 }
 
 .feature {
   opacity: 0;
+  animation-fill-mode: both;
+}
+
+.implementation-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+  gap: var(--space-xl);
+  margin: var(--space-xl) 0;
+}
+
+.implementation-card {
+  padding: var(--space-xl);
+  background: var(--surface-variant);
+  border-radius: var(--radius-lg);
+  border: 1px solid color-mix(in oklch, var(--on-surface) 10%, transparent);
+  transition: all var(--duration-normal) var(--easing-standard);
+}
+
+.implementation-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--primary);
+}
+
+.implementation-card h4 {
+  margin: 0 0 var(--space-md) 0;
+  color: var(--on-surface);
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+.implementation-card p {
+  color: var(--on-surface-variant);
+  margin: var(--space-sm) 0;
+  line-height: 1.5;
+}
+
+.implementation-card ul {
+  margin: var(--space-md) 0;
+  padding-left: var(--space-lg);
+}
+
+.implementation-card ul li {
+  color: var(--on-surface-variant);
+  margin: var(--space-xs) 0;
+}
+
+/* View transition names for better animations */
+.hero {
+  view-transition-name: hero-section;
+}
+
+.feature-grid {
+  view-transition-name: feature-grid;
+}
+
+.learning-path {
+  view-transition-name: learning-path;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .implementation-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .hero .btn {
+    display: block;
+    margin: var(--space-md) auto !important;
+    text-align: center;
+  }
 }
 </style>
 </body>
