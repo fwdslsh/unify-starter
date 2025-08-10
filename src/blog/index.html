@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!--#include virtual="/_includes/head.html" -->
+  <title>Blog - Unify Demo</title>
+</head>
+<body>
+<!--#include virtual="/_includes/header.html" -->
+
+<main>
+  <div class="blog-layout">
+    <div class="blog-header">
+      <h1>📝 Blog</h1>
+      <p>Insights about static site generation and web development</p>
+    </div>
+    
+    <div class="blog-list">
+      <article class="blog-preview">
+        <h2><a href="/blog/first-post.html">Getting Started with Unify</a></h2>
+        <div class="blog-meta">
+          <time datetime="2025-01-15">January 15, 2025</time> • 
+          <span class="author">by Unify Team</span> • 
+          <span class="tags">Tutorial, Getting Started</span>
+        </div>
+        <p>Learn how to build your first static site with Unify's powerful templating system and component architecture.</p>
+        <a href="/blog/first-post.html" class="btn">Read More</a>
+      </article>
+
+      <article class="blog-preview">
+        <h2><a href="/blog/second-post.html">Advanced Features Deep Dive</a></h2>
+        <div class="blog-meta">
+          <time datetime="2025-01-10">January 10, 2025</time> • 
+          <span class="author">by Unify Team</span> • 
+          <span class="tags">Advanced, Features</span>
+        </div>
+        <p>Explore advanced Unify features including nested layouts, Apache SSI includes, and component architecture patterns.</p>
+        <a href="/blog/second-post.html" class="btn">Read More</a>
+      </article>
+    </div>
+
+    <!--#include virtual="/_includes/components/_navigation.html" -->
+  </div>
+</main>
+
+<!--#include virtual="/_includes/footer.html" -->
+</body>
+</html>

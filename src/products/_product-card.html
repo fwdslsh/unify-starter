@@ -1,0 +1,29 @@
+<div class="product-card">
+  <img src="/assets/images/placeholder-product.jpg" alt="Product Image" loading="lazy">
+  <div class="product-card-content">
+    <h3>Sample Product</h3>
+    <p>High-quality product with advanced features and modern design.</p>
+    <div class="price">$99.99</div>
+    <button class="btn">Add to Cart</button>
+  </div>
+</div>
+
+<script>
+// Product card interactions
+document.addEventListener('DOMContentLoaded', () => {
+  const productCards = document.querySelectorAll('.product-card');
+  productCards.forEach(card => {
+    const button = card.querySelector('.btn');
+    if (button) {
+      button.addEventListener('click', () => {
+        button.textContent = 'Added to Cart!';
+        button.style.background = '#28a745';
+        setTimeout(() => {
+          button.textContent = 'Add to Cart';
+          button.style.background = '';
+        }, 2000);
+      });
+    }
+  });
+});
+</script>

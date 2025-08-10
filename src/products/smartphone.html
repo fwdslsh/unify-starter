@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!--#include virtual="/_includes/head.html" -->
+  <title>Smartphone X - Premium Device - Unify Demo</title>
+  <meta property="og:title" content="Smartphone X - Premium Device">
+  <meta property="og:description" content="Latest smartphone with advanced features">
+  <meta name="keywords" content="smartphone, mobile, technology">
+</head>
+<body>
+<!--#include virtual="/_includes/header.html" -->
+
+<main>
+  <div class="product-detail">
+    <div class="product-hero">
+      <div class="grid grid-2">
+        <div class="product-image">
+          <img src="/assets/images/placeholder-product.jpg" alt="Smartphone X" style="width: 100%; border-radius: 12px;">
+        </div>
+        <div class="product-info">
+          <h1>📱 Smartphone X</h1>
+          <p class="product-subtitle">The most advanced smartphone we've ever created</p>
+          
+          <div class="product-features">
+            <h3>Key Features:</h3>
+            <ul>
+              <li>🔋 All-day battery life (24+ hours)</li>
+              <li>📸 Triple-camera system with AI photography</li>
+              <li>🚀 Lightning-fast A17 processor</li>
+              <li>💧 Water and dust resistant (IP68)</li>
+              <li>📱 6.7" Super Retina XDR display</li>
+            </ul>
+          </div>
+          
+          <div class="product-price">
+            <span class="price-label">Starting at</span>
+            <span class="price-value">$899.99</span>
+          </div>
+          
+          <div class="product-actions">
+            <button class="btn btn-primary">Add to Cart</button>
+            <button class="btn btn-secondary">Learn More</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="product-details">
+      <h2>Technical Specifications</h2>
+      <div class="grid grid-2">
+        <div class="spec-group">
+          <h4>Display</h4>
+          <ul>
+            <li>6.7" Super Retina XDR display</li>
+            <li>2778 x 1284 resolution</li>
+            <li>HDR10 and Dolby Vision</li>
+            <li>True Tone technology</li>
+          </ul>
+        </div>
+        
+        <div class="spec-group">
+          <h4>Performance</h4>
+          <ul>
+            <li>A17 Pro chip</li>
+            <li>6-core GPU</li>
+            <li>8GB unified memory</li>
+            <li>Up to 1TB storage</li>
+          </ul>
+        </div>
+        
+        <div class="spec-group">
+          <h4>Camera</h4>
+          <ul>
+            <li>48MP main camera</li>
+            <li>12MP ultra-wide camera</li>
+            <li>12MP telephoto camera</li>
+            <li>4K video recording</li>
+          </ul>
+        </div>
+        
+        <div class="spec-group">
+          <h4>Battery & Charging</h4>
+          <ul>
+            <li>All-day battery life</li>
+            <li>Fast wireless charging</li>
+            <li>MagSafe compatible</li>
+            <li>USB-C connectivity</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!--#include virtual="/_includes/footer.html" -->
+
+<script>
+  // Product page specific JavaScript
+  document.addEventListener('DOMContentLoaded', () => {
+    const addToCartBtn = document.querySelector('.btn-primary');
+    const learnMoreBtn = document.querySelector('.btn-secondary');
+    
+    addToCartBtn.addEventListener('click', () => {
+      addToCartBtn.textContent = '✅ Added to Cart!';
+      addToCartBtn.style.background = '#28a745';
+      setTimeout(() => {
+        addToCartBtn.textContent = 'Add to Cart';
+        addToCartBtn.style.background = '';
+      }, 3000);
+    });
+    
+    learnMoreBtn.addEventListener('click', () => {
+      alert('More information would be displayed here!');
+    });
+  });
+</script>
+
+<style>
+  .product-detail {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  
+  .product-hero {
+    margin-bottom: 3rem;
+  }
+  
+  .product-info h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .product-subtitle {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 2rem;
+  }
+  
+  .product-features ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .product-features li {
+    padding: 0.5rem 0;
+    font-size: 1.1rem;
+  }
+  
+  .product-price {
+    margin: 2rem 0;
+  }
+  
+  .price-label {
+    display: block;
+    color: #666;
+    font-size: 0.9rem;
+  }
+  
+  .price-value {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #667eea;
+  }
+  
+  .product-actions {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .btn-primary {
+    background: #667eea;
+    color: white;
+  }
+  
+  .btn-secondary {
+    background: transparent;
+    color: #667eea;
+    border: 2px solid #667eea;
+  }
+  
+  .spec-group h4 {
+    color: #333;
+    margin-bottom: 1rem;
+  }
+  
+  .spec-group ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .spec-group li {
+    padding: 0.3rem 0;
+    color: #666;
+  }
+</style>
+</body>
+</html>

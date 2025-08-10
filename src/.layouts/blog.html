@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--#include virtual="/_includes/head.html" -->
+  <title>{{ title | default: "Blog" }} - Unify Demo</title>
+</head>
+<body>
+  <!--#include virtual="/_includes/header.html" -->
+  
+  <main>
+    <div class="blog-layout">
+      <div class="blog-header">
+        <h1>📝 Blog</h1>
+        <p>Insights about static site generation and web development</p>
+      </div>
+      
+      {{ content }}
+    </div>
+  </main>
+  
+  <!--#include virtual="/_includes/footer.html" -->
+</body>
+</html>

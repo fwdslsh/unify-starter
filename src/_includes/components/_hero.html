@@ -1,0 +1,26 @@
+<div class="hero">
+  <div class="container">
+    <h1><slot name="title">Welcome to Unify</slot></h1>
+    <p><slot name="subtitle">The modern static site generator that just works</slot></p>
+    <slot name="action">
+      <a href="#features" class="btn">Explore Features</a>
+    </slot>
+  </div>
+</div>
+
+<script>
+// Hero-specific interactions
+document.addEventListener('DOMContentLoaded', () => {
+  const hero = document.querySelector('.hero');
+  if (hero) {
+    hero.style.opacity = '0';
+    hero.style.transform = 'translateY(20px)';
+    hero.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+    
+    setTimeout(() => {
+      hero.style.opacity = '1';
+      hero.style.transform = 'translateY(0)';
+    }, 100);
+  }
+});
+</script>
