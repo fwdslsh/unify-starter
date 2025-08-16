@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <!--#include virtual="/_includes/head.html" -->
-  <title>{{ title | default: "Blog" }} - Unify Demo</title>
+  <div data-slot="head"></div>
 </head>
 <body>
   <!--#include virtual="/_includes/header.html" -->
@@ -14,7 +14,7 @@
         <p>Insights about static site generation and web development</p>
       </div>
       
-      {{ content }}
+      <div data-slot="content"></div>
     </div>
   </main>
   

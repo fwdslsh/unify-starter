@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <!--#include virtual="/_includes/head.html" -->
-  <title>{{ title | default: "Products" }} - Unify Demo</title>
+  <div data-slot="head"></div>
 </head>
 <body>
   <!--#include virtual="/_includes/header.html" -->
@@ -14,7 +14,7 @@
         <p>Showcase of product pages built with Unify</p>
       </div>
       
-      {{ content }}
+      <div data-slot="content"></div>
     </div>
   </main>
   

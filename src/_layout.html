@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
   <!--#include virtual="/_includes/head.html" -->
-  <title>{{ title | default: "Unify Demo Site" }}</title>
+  <div data-slot="head"></div>
 </head>
 <body>
   <!--#include virtual="/_includes/header.html" -->
   
   <main>
-    {{ content }}
+    <div data-slot="content"></div>
   </main>
   
   <!--#include virtual="/_includes/footer.html" -->

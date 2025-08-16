@@ -1,6 +1,5 @@
 ---
 title: "Next Steps - Your Unify Journey"
-layout: "default"
 description: "Complete guide on how to customize and use this Unify starter kit for your own projects"
 ---
 

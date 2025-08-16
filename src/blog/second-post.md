@@ -125,7 +125,7 @@ layout: "blog"
 
     #### Custom Asset Copying
     ```bash
-    npx @fwdslsh/unify build --assets "./static/**/*"
+    npx @fwdslsh/unify build --copy "./static/**/*"
     ```
 
     ### Development Workflow
