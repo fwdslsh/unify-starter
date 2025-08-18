@@ -7,15 +7,6 @@ description: "Explore advanced Unify features including nested layouts, slot tem
 layout: "blog"
 ---
 
----
-title: "Advanced Features Deep Dive"
-date: "2025-01-10"
-author: "Unify Team"
-tags: ["advanced", "features", "templating"]
-description: "Explore advanced Unify features including layouts, includes, and component architecture."
-layout: "blog"
----
-
 <article class="blog-post">
   <header class="blog-meta">
     <h1>Advanced Features Deep Dive</h1>
@@ -29,23 +20,23 @@ layout: "blog"
   <div class="blog-content">
     ## Advanced Templating Patterns
 
-    Unify provides powerful templating capabilities built around Apache SSI includes and layout systems. Let's explore the advanced features that make Unify a robust static site generator.
+    Unify provides powerful templating capabilities built around cascading imports and slot-based composition. Let's explore the advanced features that make Unify a robust static site generator.
 
     ### Layout System Deep Dive
 
-    Unify uses a convention-based layout system with `.layouts/` directory:
+    Unify uses cascading imports with slot-based composition:
 
     ```html
-    <!-- .layouts/default.html -->
+    <!-- _layout.html -->
     <!DOCTYPE html>
     <html>
     <head>
-      <title>{{ title | default: "My Site" }}</title>
+      <slot name="head"></slot>
     </head>
     <body>
-      <!--#include virtual="/_includes/header.html" -->
-      <main>{{ content }}</main>
-      <!--#include virtual="/_includes/footer.html" -->
+      <template data-import="/_includes/header.html"></template>
+      <main><slot></slot></main>
+      <template data-import="/_includes/footer.html"></template>
     </body>
     </html>
     ```
@@ -62,23 +53,26 @@ layout: "blog"
     ```
 
     #### 2. Default Layout Fallback
-    If no layout is specified, Unify uses `default.html` from `.layouts/`
+    If no layout is specified, Unify uses automatic layout discovery with `_layout.html`
 
     ### Component Architecture
 
-    Build reusable components with Apache SSI includes:
+    Build reusable components with slot-based composition:
 
     ```html
     <!-- _includes/components/_card.html -->
     <div class="card">
-      <h3>Card Title</h3>
-      <p>Card content goes here.</p>
+      <h3><slot name="title">Default Title</slot></h3>
+      <p><slot>Default content goes here.</slot></p>
     </div>
     ```
 
     Use components in your pages:
     ```html
-    <!--#include virtual="/_includes/components/_card.html" -->
+    <template data-import="/_includes/components/_card.html">
+      <template data-target="title">Custom Title</template>
+      Custom content for the card
+    </template>
     ```
 
     ### Asset Management
@@ -113,19 +107,19 @@ layout: "blog"
 
     #### Pretty URLs
     ```bash
-    npx @fwdslsh/unify build --pretty-urls
+    unify build --pretty-urls
     ```
     - `about.html` → `about/index.html`
     - `blog/post.html` → `blog/post/index.html`
 
     #### Minification
     ```bash
-    npx @fwdslsh/unify build --minify
+    unify build --minify
     ```
 
     #### Custom Asset Copying
     ```bash
-    npx @fwdslsh/unify build --copy "./static/**/*"
+    unify build --copy "./static/**/*"
     ```
 
     ### Development Workflow
@@ -148,8 +142,8 @@ layout: "blog"
     #### Incremental Builds
     Unify tracks dependencies and rebuilds only what's necessary:
 
-    - Change `_includes/header.html` → Rebuilds all pages including it
-    - Change `.layouts/blog.html` → Rebuilds all pages using blog layout
+    - Change `_includes/header.html` → Rebuilds all pages importing it
+    - Change `_includes/_blog.layout.html` → Rebuilds all pages using blog layout
     - Change single page → Rebuilds only that page
 
     ### Directory Structure Best Practices
@@ -183,7 +177,7 @@ layout: "blog"
     2. **Optimize images** before adding to assets
     3. **Minimize CSS/JS** for production builds
     4. **Leverage browser caching** with proper asset naming
-    5. **Use Apache SSI includes** for better code organization
+    5. **Use cascading imports** for better code organization
 
     ## Security Considerations
 

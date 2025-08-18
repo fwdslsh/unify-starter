@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!--#include virtual="/_includes/head.html" -->
+<head>
   <title>Welcome to Unify - Complete Demo</title>
   <meta name="description" content="Complete demonstration of Unify static site generator features">
   <meta name="keywords" content="unify, static site generator, demo, templating">
   <meta property="og:title" content="Unify Complete Demo">
   <meta property="og:description" content="Showcase of all Unify features in action">
 </head>
-<body>
-<!--#include virtual="/_includes/header.html" -->
+<body data-import="/_layout.html">
 
 <main>
   <!-- Hero Section -->
@@ -33,7 +32,7 @@
       <div class="feature">
         <span class="feature-icon">🧩</span>
         <h3>Component Architecture</h3>
-        <p>Master Apache SSI includes for reusable components and modular design patterns.</p>
+        <p>Master cascading imports and data-import system for reusable components and modular design patterns.</p>
       </div>
       
       <div class="feature">
@@ -115,13 +114,13 @@
     <h2>🔗 Technical Implementation Examples</h2>
     <p>See how Unify features work under the hood:</p>
     
-    <!--#include virtual="/_includes/card.html" -->
+    <template data-import="/_includes/card.html"></template>
     
     <div class="implementation-grid">
       <div class="implementation-card">
-        <h4>Apache SSI Includes</h4>
-        <p>The card above uses this include syntax:</p>
-        <pre><code>&lt;!--#include virtual="/_includes/card.html" --&gt;</code></pre>
+        <h4>Data Import Components</h4>
+        <p>The card above uses this import syntax:</p>
+        <pre><code>&lt;template data-import="/_includes/card.html"&gt;&lt;/template&gt;</code></pre>
         <p>Processed at build time for component reusability.</p>
       </div>
       
@@ -217,7 +216,7 @@ npm run build:production</code></pre>
       
       <div class="card">
         <h3>🛍️ Product Pages</h3>
-        <p>Understand layout overrides, component includes, and structured content patterns.</p>
+        <p>Understand layout overrides, component imports, and structured content patterns.</p>
         <div class="card-footer">
           <a href="/products/" class="btn">View Product Examples</a>
           <small>Learn component-based page construction</small>
@@ -244,8 +243,6 @@ npm run build:production</code></pre>
     </div>
   </section>
 </main>
-
-<!--#include virtual="/_includes/footer.html" -->
 
 <script>
 // Homepage enhanced JavaScript with modern features

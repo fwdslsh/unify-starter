@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!--#include virtual="/_includes/head.html" -->
-  <div data-slot="head"></div>
+  <template data-import="/_includes/head.html"></template>
+  <slot name="head"></slot>
 </head>
 <body>
-  <!--#include virtual="/_includes/header.html" -->
+  <template data-import="/_includes/header.html"></template>
   
   <main>
     <div class="blog-layout">
@@ -14,10 +14,10 @@
         <p>Insights about static site generation and web development</p>
       </div>
       
-      <div data-slot="content"></div>
+      <slot></slot>
     </div>
   </main>
   
-  <!--#include virtual="/_includes/footer.html" -->
+  <template data-import="/_includes/footer.html"></template>
 </body>
 </html>

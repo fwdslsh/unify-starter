@@ -169,23 +169,13 @@ Key files to customize:
 
 #### For HTML Pages:
 ```html
-<!DOCTYPE html>
-<html lang="en">
 <head>
-<!--#include virtual="/_includes/head.html" -->
   <title>Your Page Title</title>
   <meta name="description" content="Page description">
 </head>
-<body>
-<!--#include virtual="/_includes/header.html" -->
-
-<main>
+<body data-import="/_layout.html">
   <!-- Your content here -->
-</main>
-
-<!--#include virtual="/_includes/footer.html" -->
 </body>
-</html>
 ```
 
 #### For Markdown Pages:
@@ -330,35 +320,39 @@ Create reusable components in `src/_includes/components/`:
 ```html
 <!-- src/_includes/components/my-widget.html -->
 <div class="my-widget">
-  <h3>Custom Widget</h3>
-  <p>Reusable component content</p>
+  <h3><slot name="title">Custom Widget</slot></h3>
+  <p><slot>Reusable component content</slot></p>
 </div>
 ```
 
-Include in any page:
+Import in any page:
 ```html
-<!--#include virtual="/_includes/components/my-widget.html" -->
+<template data-import="/_includes/components/my-widget.html">
+  <template data-target="title">My Custom Title</template>
+  Custom content for the widget
+</template>
 ```
 
 ### Layout Customization
 
-Create custom layouts in `src/.layouts/`:
+Create custom layouts in `src/_includes/`:
 
 ```html
-<!-- src/.layouts/custom.html -->
+<!-- src/_includes/_custom.layout.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!--#include virtual="/_includes/head.html" -->
+  <template data-import="/_includes/head.html"></template>
+  <slot name="head"></slot>
 </head>
 <body class="custom-layout">
-<!--#include virtual="/_includes/header.html" -->
+  <template data-import="/_includes/header.html"></template>
 
-<main class="custom-main">
-  <!-- Page content will be inserted here -->
-</main>
+  <main class="custom-main">
+    <slot></slot>
+  </main>
 
-<!--#include virtual="/_includes/footer.html" -->
+  <template data-import="/_includes/footer.html"></template>
 </body>
 </html>
 ```

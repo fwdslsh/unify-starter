@@ -7,15 +7,6 @@ description: "Learn how to build your first static site with Unify's powerful te
 layout: "blog"
 ---
 
----
-title: "Getting Started with Unify"
-date: "2025-01-15"
-author: "Unify Team"
-tags: ["tutorial", "getting-started"]
-description: "Learn how to build your first static site with Unify's powerful templating system."
-layout: "blog"
----
-
 <article class="blog-post">
   <header class="blog-meta">
     <h1>Getting Started with Unify</h1>
@@ -29,16 +20,18 @@ layout: "blog"
   <div class="blog-content">
     ## What is Unify?
 
-    Unify is a modern, lightweight static site generator designed for frontend developers who want to build maintainable static sites with component-based architecture. It uses familiar Apache SSI syntax for includes and processing.
+    Unify is a modern, lightweight static site generator designed for frontend developers who want to build maintainable static sites with component-based architecture. It uses cascading imports with `data-import` and slot-based composition.
 
     ## Key Features
 
-    ### 1. Apache SSI Includes
-    Build reusable components with familiar `<!--#include-->` syntax:
+    ### 1. Cascading Imports
+    Build reusable components with modern `data-import` syntax:
 
     ```html
-    <!--#include virtual="/_includes/header.html" -->
-    <!--#include file="relative-component.html" -->
+    <template data-import="/_includes/header.html"></template>
+    <div data-import="/_includes/hero.html">
+      <template data-target="title">My Page Title</template>
+    </div>
     ```
 
     ### 2. Markdown Support
@@ -57,10 +50,9 @@ layout: "blog"
     ### 3. Layout System
     Organize your site with automatic layout discovery:
 
-    - Create layouts in `src/.layouts/` directory
+    - Create layouts with `<slot>` elements for content insertion
     - Specify layout in frontmatter: `layout: "blog"`
-    - Use `{{ content }}` to insert page content
-    - Use `{{ title }}` for dynamic titles
+    - Use `<slot></slot>` for main content and `<slot name="head"></slot>` for head content
 
     ### 4. Live Development Server
     Start developing with hot reload:
@@ -68,7 +60,7 @@ layout: "blog"
     ```bash
     npm run dev
     # or
-    npx @fwdslsh/unify serve
+    unify serve
     ```
 
     ## Getting Started
@@ -98,10 +90,10 @@ layout: "blog"
 
     ```
     src/
-    ├── .layouts/           # Layout templates
-    │   ├── default.html   # Default layout
-    │   └── blog.html      # Blog layout
-    ├── _includes/         # Reusable components
+    ├── _layout.html       # Default layout
+    ├── _includes/         # Reusable components and layouts
+    │   ├── _blog.layout.html    # Blog layout
+    │   ├── head.html      # HTML head partial
     │   ├── header.html    # Site header
     │   ├── footer.html    # Site footer
     │   └── components/    # Custom components
@@ -120,7 +112,7 @@ layout: "blog"
     - Explore the project structure
     - Try creating your own components in `/_includes/`
     - Add Markdown content with frontmatter
-    - Experiment with different layouts
+    - Experiment with different layouts using `data-import`
     - Test the CLI build options
 
     Happy building with Unify! 🚀

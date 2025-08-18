@@ -4,14 +4,15 @@
   "description": "A comprehensive demonstration of all Unify static site generator features and capabilities",
   "homepage": "https://unify-demo.example.com",
   "scripts": {
-    "build": "npx @fwdslsh/unify build",
-    "dev": "npx @fwdslsh/unify serve",
-    "build:pretty": "npx @fwdslsh/unify build --pretty-urls",
-    "build:minify": "npx @fwdslsh/unify build --minify",
-    "build:production": "npx @fwdslsh/unify build --pretty-urls --minify --clean"
+    "build": "unify build",
+    "dev": "unify serve",
+    "watch": "unify watch",
+    "build:pretty": "unify build --pretty-urls",
+    "build:minify": "unify build --minify",
+    "build:production": "unify build --pretty-urls --minify --clean"
   },
   "devDependencies": {
-    "@fwdslsh/unify": "^0.4.2"
+    "@fwdslsh/unify": "^0.6.0"
   },
   "keywords": [
     "unify", 
