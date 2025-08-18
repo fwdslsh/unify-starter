@@ -4,7 +4,7 @@ Welcome to the **Unify Complete Demo**, a comprehensive showcase of all Unify st
 
 ![Unify banner](src/assets/images/favicon.png)
 
-Unify is a zero-boilerplate, convention-based static site generator that uses Apache SSI syntax and simple includes to provide layouts, component includes, and scoped styles/scripts - all at build time. Built for modern performance with Bun-native APIs.
+Unify is a zero-boilerplate, convention-based static site generator that uses modern DOM templating with `data-import`, `data-target` attributes and `slot` elements to provide layouts, component composition, and scoped styles/scripts - all at build time. Built for modern performance with Bun-native APIs.
 
 ## 🎯 What This Demo Showcases
 
@@ -12,9 +12,10 @@ This starter project demonstrates every major feature of Unify according to the 
 
 ### ✅ Core Features Demonstrated
 
-- **🔗 Apache SSI Includes**: Component-based architecture with `<!--#include virtual="..." -->`
+- **🔗 Cascading Imports**: Component-based architecture with `data-import` and `slot` elements
 - **📝 Markdown Processing**: YAML frontmatter with layout assignment
 - **🎨 Layout System**: Automatic layout discovery with `_layout.html` files
+- **🧩 Component Slots**: Named slots and content injection with `data-target`
 - **🚀 Live Development Server**: Hot reload with incremental builds
 - **📁 Asset Management**: Automatic asset discovery and copying
 - **🌐 Pretty URLs**: Clean URL generation with `--pretty-urls`
@@ -100,13 +101,13 @@ src/
 ```bash
 # Start development server with live reload
 npm run dev
-npx @fwdslsh/unify serve
+unify serve
 
 # Watch files without serving
-npx @fwdslsh/unify watch
+unify watch
 
 # Custom port
-npx @fwdslsh/unify serve --port 8080
+unify serve --port 8080
 ```
 
 ### Build Commands
@@ -114,37 +115,40 @@ npx @fwdslsh/unify serve --port 8080
 ```bash
 # Basic build
 npm run build
-npx @fwdslsh/unify build
+unify build
 
 # Pretty URLs (about.html → about/index.html)
-npx @fwdslsh/unify build --pretty-urls
+unify build --pretty-urls
 
 # With minification
-npx @fwdslsh/unify build --minify
+unify build --minify
 
 # Clean build (remove dist first)
-npx @fwdslsh/unify build --clean
+unify build --clean
 
 # Custom asset copying
-npx @fwdslsh/unify build --copy "./static/**/*"
+unify build --copy "./static/**/*"
 
 # Custom base URL for sitemap
-npx @fwdslsh/unify build --base-url https://mysite.com
+unify build --base-url https://mysite.com
 
 # Disable sitemap generation
-npx @fwdslsh/unify build --no-sitemap
+unify build --no-sitemap
 ```
 
 ## 📋 Feature Demonstrations
 
-### 1. Apache SSI Includes
+### 1. Cascading Imports
 
 ```html
-<!-- Include a header component -->
-<!--#include virtual="/_includes/header.html" -->
+<!-- Import a header component -->
+<template data-import="/_includes/header.html"></template>
 
-<!-- Include relative to current file -->
-<!--#include file="./local-component.html" -->
+<!-- Import with content injection -->
+<div data-import="/_includes/hero.html">
+  <template data-target="title">Welcome to My Site</template>
+  <template data-target="subtitle">Built with Unify</template>
+</div>
 ```
 
 ### 2. Layout System
@@ -157,10 +161,10 @@ Create `_layout.html` in your source directory for automatic layout application:
 <!DOCTYPE html>
 <html>
 <head>
-  <div data-slot="head"></div>
+  <slot name="head"></slot>
 </head>
 <body>
-  <div data-slot="content"></div>
+  <slot></slot>
 </body>
 </html>
 ```
@@ -173,10 +177,10 @@ Create named layouts in `_includes/` directory:
 <!DOCTYPE html>
 <html>
 <head>
-  <div data-slot="head"></div>
+  <slot name="head"></slot>
 </head>
 <body>
-  {{ content }}
+  <slot></slot>
 </body>
 </html>
 ```
@@ -199,15 +203,18 @@ Create reusable components in `_includes/`:
 ```html
 <!-- _includes/card.html -->
 <div class="card">
-  <h3>🚀 Fast & Lightweight</h3>
-  <p>Unify provides zero-boilerplate static site generation.</p>
+  <h3><slot name="title">🚀 Fast & Lightweight</slot></h3>
+  <p><slot>Unify provides zero-boilerplate static site generation.</slot></p>
 </div>
 ```
 
 Use components in pages:
 
 ```html
-<!--#include virtual="/_includes/card.html" -->
+<template data-import="/_includes/card.html">
+  <template data-target="title">Custom Title</template>
+  Custom content for the card
+</template>
 ```
 
 ### 4. Asset Management
@@ -263,7 +270,7 @@ Components can include their own styles and scripts inline for encapsulation.
 
 Unify intelligently tracks dependencies:
 
-- Change `_includes/header.html` → Rebuilds all pages that include it
+- Change `_includes/header.html` → Rebuilds all pages that import it
 - Change a layout file → Rebuilds all pages using that layout
 - Change a single page → Rebuilds only that page
 - Change CSS/JS → Updates assets and refreshes browser
@@ -307,17 +314,18 @@ npx @fwdslsh/unify build --copy "./static/**/*"
 
 **For automatic discovery:**
 1. Create `_layout.html` in the appropriate directory
-2. Use `<div data-slot="content"></div>` where page content should appear
+2. Use `<slot></slot>` where page content should appear
 
 **For named layouts:**
 1. Create `src/_includes/_my-layout.layout.html`
-2. Use `<div data-slot="content"></div>` where page content should appear
+2. Use `<slot></slot>` where page content should appear
 3. Assign via frontmatter: `layout: "my-layout"`
 
 ### Creating Components
 1. Create files in `src/_includes/` (prefix with `_` for non-emitting partials)
-2. Use `<!--#include virtual="/_includes/my-component.html" -->`
+2. Use `<template data-import="/_includes/my-component.html"></template>`
 3. Components can include styles and scripts inline
+4. Use `<slot>` elements for content injection points
 
 ### Directory Structure
 - Files starting with `_` are non-emitting partials  
